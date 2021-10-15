@@ -11,7 +11,7 @@ class UserInfoController extends Controller
     public function getHome(Request $request){
         $texto = trim($request->get('search'));
         $user = DB::table('users')
-            ->select('id','name','email','position', 'salary')
+            ->select('id','name','phone','skills','address','email','position', 'salary')
             ->where('email', 'LIKE', '%'.$texto.'%')
             ->orderBy('id','asc')
             ->paginate(10);

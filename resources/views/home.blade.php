@@ -35,10 +35,7 @@
                     <a href="{{ url('/users') }}" class="btn btn-outline-success">Punto 3</a>
                 </div>
                 <div class="col-md-2">
-                    <a href="" class="btn btn-outline-warning">Punto 4</a>
-                </div>
-                <div class="col-md-2">
-                    <a href="" class="btn btn-outline-info">Punto 5</a>
+                    <a href="{{ url('/cuadrado') }}" class="btn btn-outline-warning">Punto 4</a>
                 </div>
             </div>
         </div>

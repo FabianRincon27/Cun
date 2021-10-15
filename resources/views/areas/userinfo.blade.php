@@ -11,7 +11,7 @@
 
     <div class="container mt-4">
         <div class="row justify-content-center">
-            <div class="col-md-7">
+            <div class="col-md-9">
                 <h3 class="text-center">Lista de usuarios</h3>
                 <br>
                 <a href="{{ url('/register')}}" class="btn btn-success">Nuevo Usuario</a>
@@ -35,21 +35,48 @@
                             <td class="text-center">Email</td>
                             <td class="text-center">Position</td>
                             <td class="text-center">Salary</td>
-                            <td class="text-center">Options</td>
+                            <td class="text-center" colspan="2">Options</td>
                         </tr>
                     </thead>
                     <tbody>
-                        
-                            @foreach ($user as $user)
+
+                        @foreach ($user as $user)
                             <tr>
-                            <td class="text-center">{{ $user->id }}</td>
-                            <td class="text-center">{{ $user->name }}</td>
-                            <td class="text-center">{{ $user->email }}</td>
-                            <td class="text-center">{{ $user->position }}</td>
-                            <td class="text-center">{{ $user->salary }}</td>
-                            <td>
-                                <a href="{{ url('/users/'.$user->id.'/delete') }}" class="btn btn-danger btn-sm">Eliminar</a>
-                            </td>
+                                <td class="text-center">{{ $user->id }}</td>
+                                <td class="text-center">{{ $user->name }}</td>
+                                <td class="text-center">{{ $user->email }}</td>
+                                <td class="text-center">{{ $user->position }}</td>
+                                <td class="text-center">{{ $user->salary }}</td>
+                                <td>
+                                    <!-- Button trigger modal -->
+                                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal{{$user->id}}">
+                                        Detalle
+                                </button>
+
+                                <!-- Modal -->
+                                <div class="modal fade" id="exampleModal{{$user->id}}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                        <h5 class="modal-title" id="exampleModalLabel">{{$user->name}}</h5>
+                                        <a class="btn btn-close btn-sm" data-bs-dismiss="modal" aria-label="Close"></a>
+                                        </div>
+                                        <div class="modal-body">
+                                            <ul>
+                                                <li>{{$user->email}}</li>
+                                                <li>{{$user->phone}}</li>
+                                                <li>{{$user->address}}</li>
+                                                <li>{{$user->position}}</li>
+                                                <li>{{$user->salary}}</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    </div>
+                                </div>
+                                </td>
+                                <td>
+                                    <a href="{{ url('/users/'.$user->id.'/delete') }}" class="btn btn-danger">Eliminar</a>
+                                </td>
                             </tr>
                         @endforeach
                     </tbody>

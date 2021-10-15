@@ -13,4 +13,8 @@ class AreaController extends Controller
     public function getParentesis(){
         return view('areas.parentesis');
     }
+
+    public function getCuadrado(){
+        return view('areas.cuadrado');
+    }
 }

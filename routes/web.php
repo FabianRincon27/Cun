@@ -12,4 +12,4 @@ Route::get('/users', 'App\Http\Controllers\UserInfoController@getHome')->name('u
 Route::get('/register', 'App\Http\Controllers\UserInfoController@getRegister')->name('register');
 Route::post('/register', 'App\Http\Controllers\UserInfoController@postRegister')->name('post-register');
 Route::get('/users/{id}/delete', 'App\Http\Controllers\UserInfoController@getDelete')->name('post-delete');
- 
+Route::get('/cuadrado', 'App\Http\Controllers\AreaController@getCuadrado')->name('Parentesis');
